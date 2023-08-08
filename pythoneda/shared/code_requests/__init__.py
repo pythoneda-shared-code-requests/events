@@ -19,3 +19,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 __path__ = __import__('pkgutil').extend_path(__path__, __name__)
+
+# Ugly hack to avoid sorting the PYTHONPATH
+from pythoneda.shared.code_requests.cell import Cell
+from pythoneda.shared.code_requests.code_cell import CodeCell
+from pythoneda.shared.code_requests.markdown_cell import MarkdownCell
+from pythoneda.shared.code_requests.dependency import Dependency
+from pythoneda.shared.code_requests.code_request import CodeRequest
