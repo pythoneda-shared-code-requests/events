@@ -27,5 +27,5 @@ try:
     from pythoneda.shared.code_requests.markdown_cell import MarkdownCell
     from pythoneda.shared.code_requests.dependency import Dependency
     from pythoneda.shared.code_requests.code_request import CodeRequest
-except ImporError:
+except ImportError:
     pass
