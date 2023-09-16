@@ -22,3 +22,4 @@ __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 
 from .code_requested import CodeRequested
 from .code_described import CodeDescribed
+from .code_packaged import CodePackaged

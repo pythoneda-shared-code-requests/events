@@ -3,7 +3,7 @@ pythoneda/shared/code_requests/events/code_described.py
 
 This file declares the CodeDescribed class.
 
-Copyright (C) 2023-today rydnr's pythoneda-shared-artifact-changes/events
+Copyright (C) 2023-today rydnr's pythoneda-shared-code-requests/events
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -43,9 +43,9 @@ class CodeDescribed(Event):
         reconstructedPreviousEventIds: List[str] = None,
     ):
         """
-        Creates a new ChangeStagingCodeDescribed instance.
+        Creates a new CodeDescribed instance.
         :param codeRequest: The code request.
-        :type codeRequest: pythoneda.shared.code_requests.code_request.CodeRequest
+        :type codeRequest: pythoneda.shared.code_requests.CodeRequest
         :param previousCodeRequestId: The id of previous event.
         :type previousCodeRequestId: str
         :param reconstructedId: The id of the event, if it's generated externally.
