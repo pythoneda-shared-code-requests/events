@@ -1,7 +1,7 @@
 """
-pythoneda/shared/code_requests/events/code_packaged.py
+pythoneda/shared/code_requests/events/code_execution_packaged.py
 
-This file declares the CodePackaged class.
+This file declares the CodeExecutionPackaged class.
 
 Copyright (C) 2023-today rydnr's pythoneda-shared-code-requests/events
 
@@ -23,11 +23,11 @@ from pythoneda.shared.nix_flake import NixFlake
 from typing import List
 
 
-class CodePackaged(Event):
+class CodeExecutionPackaged(Event):
     """
-    Represents the moment code is packaged.
+    Represents the moment a package is built to execute some code.
 
-    Class name: CodePackaged
+    Class name: CodeExecutionPackaged
 
     Responsibilities:
         - Wraps all contextual information of the event.
@@ -44,7 +44,7 @@ class CodePackaged(Event):
         reconstructedPreviousEventIds: List[str] = None,
     ):
         """
-        Creates a new CodePackaged instance.
+        Creates a new CodeExecutionPackaged instance.
         :param nixFlake: The Nix flake.
         :type nixFlake: pythoneda.shared.nix_flake.NixFlake
         :param previousCodeRequestId: The id of previous event.
@@ -63,7 +63,7 @@ class CodePackaged(Event):
     @primary_key_attribute
     def nix_flake(self) -> NixFlake:
         """
-        Retrieves the Nix flake.
+        Retrieves the code request.
         :return: Such instance.
         :rtype: pythoneda.shared.nix_flake.NixFlake
         """

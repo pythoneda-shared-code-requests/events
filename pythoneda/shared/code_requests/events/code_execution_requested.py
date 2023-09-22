@@ -1,7 +1,7 @@
 """
-pythoneda/shared/code_requests/events/code_packaged.py
+pythoneda/shared/code_requests/events/code_execution_requested.py
 
-This file declares the CodePackaged class.
+This file declares the CodeExecutionRequested class.
 
 Copyright (C) 2023-today rydnr's pythoneda-shared-code-requests/events
 
@@ -19,15 +19,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 from pythoneda import Event, primary_key_attribute
-from pythoneda.shared.nix_flake import NixFlake
+from pythoneda.shared.code_requests import CodeRequest
 from typing import List
 
-
-class CodePackaged(Event):
+class CodeExecutionRequested(Event):
     """
-    Represents the moment code is packaged.
+    Represents the moment someone requests to execute some code.
 
-    Class name: CodePackaged
+    Class name: CodeExecutionRequested
 
     Responsibilities:
         - Wraps all contextual information of the event.
@@ -38,15 +37,15 @@ class CodePackaged(Event):
 
     def __init__(
         self,
-        nixFlake: NixFlake,
+        codeRequest: CodeRequest,
         previousCodeRequestId: str = None,
         reconstructedId: str = None,
         reconstructedPreviousEventIds: List[str] = None,
     ):
         """
-        Creates a new CodePackaged instance.
-        :param nixFlake: The Nix flake.
-        :type nixFlake: pythoneda.shared.nix_flake.NixFlake
+        Creates a new CodeExecutionRequested instance.
+        :param codeRequest: The code request.
+        :type codeRequest: pythoneda.shared.code_requests.CodeRequest
         :param previousCodeRequestId: The id of previous event.
         :type previousCodeRequestId: str
         :param reconstructedId: The id of the event, if it's generated externally.
@@ -57,14 +56,14 @@ class CodePackaged(Event):
         super().__init__(
             [previousCodeRequestId], reconstructedId, reconstructedPreviousEventIds
         )
-        self._nix_flake = nixFlake
+        self._code_request = codeRequest
 
     @property
     @primary_key_attribute
-    def nix_flake(self) -> NixFlake:
+    def code_request(self) -> CodeRequest:
         """
-        Retrieves the Nix flake.
+        Retrieves the code request.
         :return: Such instance.
-        :rtype: pythoneda.shared.nix_flake.NixFlake
+        :rtype: pythoneda.shared.code_requests.CodeRequest
         """
-        return self._nix_flake
+        return self._code_request
