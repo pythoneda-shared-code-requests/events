@@ -19,8 +19,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 from pythoneda import Event, primary_key_attribute
-from pythoneda.shared.artifact_changes import Change
+from pythoneda.shared.artifact.events import Change
 from typing import List
+
 
 class CodeRequested(Event):
     """
@@ -35,7 +36,13 @@ class CodeRequested(Event):
         - None
     """
 
-    def __init__(self, change:Change, previousEventIds:List[str]=None, reconstructedId:str=None, reconstructedPreviousEventIds:List[str]=None):
+    def __init__(
+        self,
+        change: Change,
+        previousEventIds: List[str] = None,
+        reconstructedId: str = None,
+        reconstructedPreviousEventIds: List[str] = None,
+    ):
         """
         Creates a new CodeRequested instance.
         :param change: The change information.
@@ -47,7 +54,9 @@ class CodeRequested(Event):
         :param reconstructedPreviousEventIds: The id of the previous events, if an external event is being recostructed.
         :type reconstructedPreviousEventIds: List[str]
         """
-        super().__init__(previousEventIds, reconstructedId, reconstructedPreviousEventIds)
+        super().__init__(
+            previousEventIds, reconstructedId, reconstructedPreviousEventIds
+        )
         self._change = change
 
     @property
@@ -56,6 +65,6 @@ class CodeRequested(Event):
         """
         Retrieves the change.
         :return: Such information.
-        :rtype: pythoneda.shared.artifact_changes.Change
+        :rtype: pythoneda.shared.artifact.events.Change
         """
         return self._change
