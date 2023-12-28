@@ -22,6 +22,7 @@ from pythoneda import Event, primary_key_attribute
 from pythoneda.shared.code_requests import CodeRequest
 from typing import List
 
+
 class CodeExecutionRequested(Event):
     """
     Represents the moment someone requests to execute some code.
@@ -50,7 +51,8 @@ class CodeExecutionRequested(Event):
         :type previousCodeRequestId: str
         :param reconstructedId: The id of the event, if it's generated externally.
         :type reconstructedId: str
-        :param reconstructedPreviousEventIds: The id of the previous events, if an external event is being recostructed.
+        :param reconstructedPreviousEventIds: The id of the previous events, if an external event
+        is being reconstructed.
         :type reconstructedPreviousEventIds: List[str]
         """
         super().__init__(
