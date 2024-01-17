@@ -26,3 +26,11 @@ from .code_described import CodeDescribed
 from .code_packaged import CodePackaged
 from .code_execution_requested import CodeExecutionRequested
 from .code_execution_packaged import CodeExecutionPackaged
+# vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
+# Local Variables:
+# mode: python
+# python-indent-offset: 4
+# tab-width: 4
+# indent-tabs-mode: nil
+# fill-column: 79
+# End:
