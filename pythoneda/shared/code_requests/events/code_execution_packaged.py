@@ -20,7 +20,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 from pythoneda.shared import Event, primary_key_attribute
-from pythoneda.shared.nix_flake import NixFlake
+from pythoneda.shared.nix.flake import NixFlake
 from typing import List
 
 
@@ -47,7 +47,7 @@ class CodeExecutionPackaged(Event):
         """
         Creates a new CodeExecutionPackaged instance.
         :param nixFlake: The Nix flake.
-        :type nixFlake: pythoneda.shared.nix_flake.NixFlake
+        :type nixFlake: pythoneda.shared.nix.flake.NixFlake
         :param previousCodeRequestId: The id of previous event.
         :type previousCodeRequestId: str
         :param reconstructedId: The id of the event, if it's generated externally.
@@ -67,9 +67,11 @@ class CodeExecutionPackaged(Event):
         """
         Retrieves the code request.
         :return: Such instance.
-        :rtype: pythoneda.shared.nix_flake.NixFlake
+        :rtype: pythoneda.shared.nix.flake.NixFlake
         """
         return self._nix_flake
+
+
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
 # Local Variables:
 # mode: python
