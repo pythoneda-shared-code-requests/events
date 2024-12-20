@@ -40,25 +40,19 @@ class CodeDescribed(Event):
     def __init__(
         self,
         codeRequest: CodeRequest,
-        previousCodeRequestId: str = None,
+        previousEventIds: List[str] = None,
         reconstructedId: str = None,
-        reconstructedPreviousEventIds: List[str] = None,
     ):
         """
         Creates a new CodeDescribed instance.
         :param codeRequest: The code request.
         :type codeRequest: pythoneda.shared.code_requests.CodeRequest
-        :param previousCodeRequestId: The id of previous event.
-        :type previousCodeRequestId: str
+        :param previousEventIds: The id of the previous events.
+        :type previousEventIds: List[str]
         :param reconstructedId: The id of the event, if it's generated externally.
         :type reconstructedId: str
-        :param reconstructedPreviousEventIds: The id of the previous events, if an external event
-        is being reconstructed.
-        :type reconstructedPreviousEventIds: List[str]
         """
-        super().__init__(
-            [previousCodeRequestId], reconstructedId, reconstructedPreviousEventIds
-        )
+        super().__init__(previousEventIds, reconstructedId)
         self._code_request = codeRequest
 
     @property
@@ -70,6 +64,8 @@ class CodeDescribed(Event):
         :rtype: pythoneda.shared.code_requests.CodeRequest
         """
         return self._code_request
+
+
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
 # Local Variables:
 # mode: python
